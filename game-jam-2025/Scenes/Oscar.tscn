@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://dwyxp6g6v7f0v"]
+
+[ext_resource type="Texture2D" uid="uid://fax5l3et3haa" path="res://Assets/Wizard Fight/big_frog_sheet.png" id="1_402dd"]
+[ext_resource type="Script" uid="uid://co60jorp5gyl8" path="res://Scripts/oscar.gd" id="1_c6nhn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_402dd"]
+atlas = ExtResource("1_402dd")
+region = Rect2(382, 0, 191, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6nhn"]
+atlas = ExtResource("1_402dd")
+region = Rect2(573, 0, 191, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_om1i5"]
+atlas = ExtResource("1_402dd")
+region = Rect2(21, 200, 193, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1h23"]
+atlas = ExtResource("1_402dd")
+region = Rect2(214, 200, 193, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1x7e0"]
+atlas = ExtResource("1_402dd")
+region = Rect2(0, 0, 191, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gax54"]
+atlas = ExtResource("1_402dd")
+region = Rect2(191, 0, 191, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_maw6t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_402dd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6nhn")
+}],
+"loop": true,
+"name": &"Dazed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_om1i5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1h23")
+}],
+"loop": true,
+"name": &"Magic",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1x7e0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gax54")
+}],
+"loop": true,
+"name": &"Talking",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktyoi"]
+size = Vector2(103, 129)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_c6nhn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_maw6t")
+animation = &"Talking"
+autoplay = "Talking"
+frame_progress = 0.61079514
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 24)
+shape = SubResource("RectangleShape2D_ktyoi")

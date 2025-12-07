@@ -1,0 +1,101 @@
+[gd_scene load_steps=13 format=3 uid="uid://wrk7vqvvegco"]
+
+[ext_resource type="Texture2D" uid="uid://cgwfawwrp1xvq" path="res://Assets/Wizard Fight/Shop art.png" id="1_iidq5"]
+[ext_resource type="PackedScene" uid="uid://dwyxp6g6v7f0v" path="res://Scenes/Oscar.tscn" id="2_lagin"]
+[ext_resource type="PackedScene" uid="uid://dm7mrfy5ouxwo" path="res://Scenes/front_desk.tscn" id="2_wndna"]
+[ext_resource type="PackedScene" uid="uid://tdx88160h0y0" path="res://Scenes/PlayerShop.tscn" id="3_lagin"]
+[ext_resource type="PackedScene" uid="uid://15i7xu8h2dp3" path="res://Scripts/maus.tscn" id="4_ckylj"]
+[ext_resource type="PackedScene" uid="uid://ns6lpkf8eqjr" path="res://Scenes/Stool.tscn" id="5_ckylj"]
+[ext_resource type="PackedScene" uid="uid://dlios70pbnaqn" path="res://Scenes/table.tscn" id="6_2aaoe"]
+[ext_resource type="PackedScene" uid="uid://phq7e0qyxdjq" path="res://Scenes/PlayerStool.tscn" id="9_ct2yw"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kjfcx"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iidq5"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lagin"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i4qx4"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Cat" parent="." instance=ExtResource("3_lagin")]
+position = Vector2(-1895, 2400)
+scale = Vector2(4.5, 4.5)
+
+[node name="ShopArt" type="Sprite2D" parent="."]
+position = Vector2(15, -26)
+scale = Vector2(5.464375, 5.548333)
+texture = ExtResource("1_iidq5")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.066, 0.066)
+
+[node name="FrontDesk" parent="." instance=ExtResource("2_wndna")]
+position = Vector2(-5619, 173.00006)
+scale = Vector2(7, 7)
+
+[node name="Oscar" parent="." instance=ExtResource("2_lagin")]
+position = Vector2(-4594, -889.00006)
+scale = Vector2(10, 10)
+
+[node name="Border" type="Node" parent="."]
+
+[node name="Down" type="StaticBody2D" parent="Border"]
+position = Vector2(-5, 4971)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/Down"]
+shape = SubResource("WorldBoundaryShape2D_kjfcx")
+
+[node name="Up" type="StaticBody2D" parent="Border"]
+position = Vector2(31, -3122)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Border/Up"]
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_iidq5")
+
+[node name="Right" type="StaticBody2D" parent="Border"]
+position = Vector2(8290, 2)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Border/Right"]
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_lagin")
+
+[node name="Left" type="StaticBody2D" parent="Border"]
+position = Vector2(-8406, 2)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Border/Left"]
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_i4qx4")
+
+[node name="Maus" parent="." instance=ExtResource("4_ckylj")]
+z_index = 1
+z_as_relative = false
+position = Vector2(6346.0005, -2472.0002)
+scale = Vector2(15, 15)
+
+[node name="Node2" type="Node" parent="."]
+
+[node name="Table_Top" parent="Node2" instance=ExtResource("6_2aaoe")]
+position = Vector2(7143, 283)
+scale = Vector2(4, 4)
+
+[node name="Stool top right" parent="Node2" instance=ExtResource("5_ckylj")]
+position = Vector2(7672, -295)
+scale = Vector2(4, 4)
+
+[node name="Stool bottom left" parent="Node2" instance=ExtResource("5_ckylj")]
+position = Vector2(4510, 3119)
+scale = Vector2(4, 4)
+
+[node name="Stool bottom right" parent="Node2" instance=ExtResource("5_ckylj")]
+position = Vector2(7602, 3133)
+scale = Vector2(4, 4)
+
+[node name="Table_Bottom" parent="Node2" instance=ExtResource("6_2aaoe")]
+position = Vector2(7112, 3629)
+scale = Vector2(4, 4)
+
+[node name="Player_stool" parent="Node2" instance=ExtResource("9_ct2yw")]
+position = Vector2(4510, -295)
+scale = Vector2(4, 4)

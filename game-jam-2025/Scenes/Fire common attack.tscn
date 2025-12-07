@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://trd6xeg02u0x"]
+
+[ext_resource type="Texture2D" uid="uid://b2rxj3qi4gg0r" path="res://Assets/Wizard Fight/Cards.png" id="1_ugk1x"]
+[ext_resource type="Texture2D" uid="uid://d0kkfbgneqcty" path="res://Assets/Wizard Fight/pixil-layer-card_icons_sheet_1.png" id="2_f02bg"]
+[ext_resource type="Script" uid="uid://d1n0rxjc7urps" path="res://Scripts/Cards.gd" id="2_qlia7"]
+[ext_resource type="FontFile" uid="uid://csttqupm41s3t" path="res://fonts/PixelOperator8.ttf" id="3_73ssx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rufqa"]
+size = Vector2(103, 133)
+
+[node name="AnimatableBody2D" type="Area2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_qlia7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = 3
+position = Vector2(1.5, 0.5)
+shape = SubResource("RectangleShape2D_rufqa")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D"]
+position = Vector2(-1.5, -0.5)
+texture = ExtResource("1_ugk1x")
+region_enabled = true
+region_rect = Rect2(14, 14, 115, 146)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D/Sprite2D"]
+position = Vector2(-39, -37)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_f02bg")
+region_enabled = true
+region_rect = Rect2(166, 248, 66, 73)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Area2D/CollisionShape2D/Sprite2D"]
+position = Vector2(-38.999996, -53.999996)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_f02bg")
+region_enabled = true
+region_rect = Rect2(13, 13, 111, 70)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Area2D/CollisionShape2D/Sprite2D"]
+texture = ExtResource("2_f02bg")
+region_enabled = true
+region_rect = Rect2(300, 256, 84, 79)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Area2D/CollisionShape2D/Sprite2D"]
+position = Vector2(42.999996, -54.999996)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_f02bg")
+region_enabled = true
+region_rect = Rect2(154, 357, 92, 100)
+
+[node name="Label" type="Label" parent="Area2D/CollisionShape2D/Sprite2D"]
+offset_left = 21.0
+offset_top = -64.0
+offset_right = 35.0
+offset_bottom = -41.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_73ssx")
+text = "2"

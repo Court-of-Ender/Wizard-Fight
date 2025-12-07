@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=3 uid="uid://v5cjt1sa3g7e"]
+
+[ext_resource type="Script" uid="uid://bvt721jkao4c" path="res://character_body_2d.gd" id="1_ktt4y"]
+[ext_resource type="Texture2D" uid="uid://dq2c0ekrqnk3m" path="res://Assets/Wizard Fight/pixil-layer-power_blasts_sheet.png" id="2_wbnp3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ph5yk"]
+atlas = ExtResource("2_wbnp3")
+region = Rect2(134, 0, 134, 131)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wneh1"]
+atlas = ExtResource("2_wbnp3")
+region = Rect2(268, 0, 134, 131)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8e2c0"]
+atlas = ExtResource("2_wbnp3")
+region = Rect2(0, 0, 134, 131)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xibij"]
+atlas = ExtResource("2_wbnp3")
+region = Rect2(402, 0, 134, 131)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4oar"]
+atlas = ExtResource("2_wbnp3")
+region = Rect2(536, 0, 134, 131)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpeoq"]
+atlas = ExtResource("2_wbnp3")
+region = Rect2(670, 0, 134, 131)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7508x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ph5yk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wneh1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8e2c0")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xibij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4oar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpeoq")
+}],
+"loop": true,
+"name": &"new_animation_1",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vk48k"]
+radius = 49.365982
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_ktt4y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7508x")
+animation = &"new_animation"
+frame_progress = 0.16095708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vk48k")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 6.0
+
+[node name="Timer3" type="Timer" parent="."]
+wait_time = 9.0

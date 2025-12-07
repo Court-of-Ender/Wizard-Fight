@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=3 uid="uid://tdx88160h0y0"]
+
+[ext_resource type="Script" uid="uid://n8cv3yixrmaa" path="res://Scripts/playeroverworld.gd" id="1_ayrlt"]
+[ext_resource type="Texture2D" uid="uid://jw5hfkuq1ak5" path="res://Assets/Wizard Fight/pixil-layer-Cat_Sheet.png" id="2_k1u7n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvpdd"]
+atlas = ExtResource("2_k1u7n")
+region = Rect2(0, 0, 335, 333)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_se48h"]
+atlas = ExtResource("2_k1u7n")
+region = Rect2(0, 999, 335, 333)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1rr3"]
+atlas = ExtResource("2_k1u7n")
+region = Rect2(335, 999, 335, 333)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmbv4"]
+atlas = ExtResource("2_k1u7n")
+region = Rect2(335, 0, 335, 333)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rq5q"]
+atlas = ExtResource("2_k1u7n")
+region = Rect2(670, 666, 335, 333)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l6hug"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvpdd")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_se48h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1rr3")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmbv4")
+}],
+"loop": true,
+"name": &"move_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rq5q")
+}],
+"loop": true,
+"name": &"move_forward",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ebmjs"]
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 10
+collision_layer = 2
+script = ExtResource("1_ayrlt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.7683716e-07, -21)
+scale = Vector2(1.8437501, 1.7812499)
+sprite_frames = SubResource("SpriteFrames_l6hug")
+animation = &"Walk"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_ebmjs")

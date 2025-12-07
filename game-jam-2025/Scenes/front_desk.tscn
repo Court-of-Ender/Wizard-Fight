@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm7mrfy5ouxwo"]
+
+[ext_resource type="Texture2D" uid="uid://bic8jg4p62hgs" path="res://Assets/Wizard Fight/table_sprite.png" id="1_dbo5v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbo5v"]
+size = Vector2(612, 109)
+
+[node name="FrontDesk" type="Node2D"]
+
+[node name="SolidPart" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="SolidPart"]
+position = Vector2(-8, -36)
+texture = ExtResource("1_dbo5v")
+region_enabled = true
+region_rect = Rect2(1645, 513, 637, 343)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SolidPart"]
+position = Vector2(-10, 71.5)
+shape = SubResource("RectangleShape2D_dbo5v")
+
+[node name="NoCollisionPart" type="Sprite2D" parent="."]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://phq7e0qyxdjq"]
+
+[ext_resource type="Script" uid="uid://ci2haqu01n511" path="res://Scripts/PlayerStool.gd" id="1_jgi06"]
+[ext_resource type="Texture2D" uid="uid://bic8jg4p62hgs" path="res://Assets/Wizard Fight/table_sprite.png" id="2_jgi06"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m55n1"]
+radius = 125.39936
+
+[node name="Coin" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_jgi06")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_m55n1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_jgi06")
+region_enabled = true
+region_rect = Rect2(1233, 538, 265, 220)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

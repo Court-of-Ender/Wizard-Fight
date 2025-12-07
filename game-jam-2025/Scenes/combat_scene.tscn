@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=3 uid="uid://egryvynau8fs"]
+
+[ext_resource type="Script" uid="uid://c1yb7vxomwyq8" path="res://Scripts/combat_scene.gd" id="1_loea4"]
+[ext_resource type="FontFile" uid="uid://csttqupm41s3t" path="res://fonts/PixelOperator8.ttf" id="1_vtehv"]
+[ext_resource type="Texture2D" uid="uid://d0kkfbgneqcty" path="res://Assets/Wizard Fight/pixil-layer-card_icons_sheet_1.png" id="2_loea4"]
+[ext_resource type="PackedScene" uid="uid://trd6xeg02u0x" path="res://Scenes/Fire common attack.tscn" id="3_7uj85"]
+[ext_resource type="PackedScene" uid="uid://dwyxp6g6v7f0v" path="res://Scenes/Oscar.tscn" id="3_rdqa8"]
+[ext_resource type="PackedScene" uid="uid://bvrgvojr4rich" path="res://Scenes/player.tscn" id="4_2ip8y"]
+[ext_resource type="Texture2D" uid="uid://b0nh30ycxrmom" path="res://Assets/Wizard Fight/default_background.png" id="4_7uj85"]
+[ext_resource type="Script" uid="uid://c1js7g7n4jv8m" path="res://Scripts/Card_Hand.gd" id="6_sv7pb"]
+[ext_resource type="PackedScene" uid="uid://v5cjt1sa3g7e" path="res://Scripts/Fireball.tscn" id="9_cy4jt"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kv618"]
+
+[node name="Combat Scene" type="Node2D"]
+script = ExtResource("1_loea4")
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Character Health" type="Label" parent="Node"]
+offset_left = -239.0
+offset_top = -159.0
+offset_right = -197.0
+offset_bottom = -136.0
+theme_override_fonts/font = ExtResource("1_vtehv")
+text = "100"
+
+[node name="Enemy Health" type="Label" parent="Node"]
+offset_left = 187.0
+offset_top = -160.0
+offset_right = 229.0
+offset_bottom = -137.0
+theme_override_fonts/font = ExtResource("1_vtehv")
+text = "100"
+
+[node name="Character Heart" type="Sprite2D" parent="Node"]
+position = Vector2(-265, -150)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_loea4")
+region_enabled = true
+region_rect = Rect2(37, 146, 59, 56)
+
+[node name="Character Heart2" type="Sprite2D" parent="Node"]
+position = Vector2(260, -149)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_loea4")
+region_enabled = true
+region_rect = Rect2(37, 146, 59, 56)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(2, 2)
+zoom = Vector2(1.8, 1.8)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_kv618")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_rdqa8")]
+position = Vector2(106, -34)
+scale = Vector2(0.5, 0.5)
+
+[node name="Player2" parent="." instance=ExtResource("4_2ip8y")]
+position = Vector2(-120, -33.000008)
+scale = Vector2(0.4, 0.4)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-49, 1)
+script = ExtResource("6_sv7pb")
+
+[node name="AnimatableBody2D" parent="Node2D" instance=ExtResource("3_7uj85")]
+position = Vector2(-170, 103)
+
+[node name="AnimatableBody2D2" parent="Node2D" instance=ExtResource("3_7uj85")]
+position = Vector2(-58, 104)
+
+[node name="AnimatableBody2D3" parent="Node2D" instance=ExtResource("3_7uj85")]
+position = Vector2(54, 103)
+
+[node name="AnimatableBody2D4" parent="Node2D" instance=ExtResource("3_7uj85")]
+position = Vector2(166, 104)
+
+[node name="AnimatableBody2D5" parent="Node2D" instance=ExtResource("3_7uj85")]
+position = Vector2(280, 104)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+z_as_relative = false
+texture = ExtResource("4_7uj85")
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("9_cy4jt")]
+position = Vector2(-8, -39)

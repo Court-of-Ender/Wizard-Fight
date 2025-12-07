@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ns6lpkf8eqjr"]
+
+[ext_resource type="Texture2D" uid="uid://bic8jg4p62hgs" path="res://Assets/Wizard Fight/table_sprite.png" id="1_dbo5v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_upt4h"]
+radius = 111.01801
+
+[node name="Stool" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-6, 0)
+texture = ExtResource("1_dbo5v")
+region_enabled = true
+region_rect = Rect2(1229, 535, 269, 221)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_upt4h")
