@@ -90,3 +90,4 @@ texture = ExtResource("4_7uj85")
 
 [node name="CharacterBody2D2" parent="." instance=ExtResource("9_cy4jt")]
 position = Vector2(-8, -39)
+script = null

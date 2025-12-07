@@ -4,7 +4,7 @@ extends Area2D
 var original_position: Vector2
 var nodepos: int = -1
 @onready var node_2d: Node2D = $"../.."
-@onready var Fireball: CharacterBody2D = $"."
+#@onready var Fireball: CharacterBody2D = $"."
 @onready var Character: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready():
@@ -26,9 +26,9 @@ func _on_mouse_exited() -> void:
 	
 func Attack():
 	Global.EnemyHealth -= 20
-	Character.Castinganim()
-	Fireball.Animation()
-	print(Global.EnemyHealth)
+	#Character.Castinganim()
+	#Fireball.Animation()
+	#print(Global.EnemyHealth)
 	
 func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
